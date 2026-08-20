@@ -1,4 +1,4 @@
-import { Radio } from "@/components/ui/radio";
+import { CheckBox, CheckBoxGroup } from "@/components/ui/checkbox";
 
 const pays = [
   { label: "Credit Card", value: "card" },
@@ -9,7 +9,9 @@ const pays = [
 export default function Home() {
   return (
     <div className="space-y-4 p-4 space-x-2">
-      <Radio options={pays} />
+      <CheckBox label="Chính sách" />
+
+      <CheckBoxGroup options={pays} />
     </div>
   );
 }
