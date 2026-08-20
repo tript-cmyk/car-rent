@@ -1,17 +1,17 @@
-import { CheckBox, CheckBoxGroup } from "@/components/ui/checkbox";
+"use client";
 
-const pays = [
-  { label: "Credit Card", value: "card" },
-  { label: "Paypal", value: "paypal" },
-  { label: "Bitcoin", value: "bitcoin" },
-];
+import { Slider } from "@/components/ui/slider";
+import { useState } from "react";
 
 export default function Home() {
+  const [slider, setSlider] = useState(10);
+
+  console.log(slider);
+
   return (
     <div className="space-y-4 p-4 space-x-2">
-      <CheckBox label="Chính sách" />
-
-      <CheckBoxGroup options={pays} />
+      <Slider value={slider} onValueChange={setSlider} step={10} />
+      <p>Max: {slider}</p>
     </div>
   );
 }
