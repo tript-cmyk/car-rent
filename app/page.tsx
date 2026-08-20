@@ -1,17 +1,37 @@
 "use client";
 
-import { Slider } from "@/components/ui/slider";
+import { Select, SELECT_SIZES } from "@/components/ui/select";
 import { useState } from "react";
 
 export default function Home() {
-  const [slider, setSlider] = useState(10);
+  const [car, setCar] = useState("");
 
-  console.log(slider);
+  console.log(car);
 
   return (
     <div className="space-y-4 p-4 space-x-2">
-      <Slider value={slider} onValueChange={setSlider} step={10} />
-      <p>Max: {slider}</p>
+      <Select
+        required
+        value={car}
+        onValueChange={(value) => setCar(value)}
+        options={[
+          {
+            label: "bmw",
+            value: "BMW",
+          },
+          {
+            label: "audi",
+            value: "AUDI",
+          },
+          {
+            label: "mercedes",
+            value: "MERCEDES",
+          },
+        ]}
+        label="Car Brand"
+        size={SELECT_SIZES.MEDIUM}
+        placeholder="Select your car"
+      />
     </div>
   );
 }
