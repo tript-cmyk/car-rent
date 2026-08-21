@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, BUTTON_SIZES, BUTTON_VARIANTS } from "@/components/ui/button";
+import { Button, BUTTON_VARIANTS } from "@/components/ui/button";
 import { Input, INPUT_STATUS, INPUT_TYPES } from "@/components/ui/input";
 import { useState } from "react";
 import { FaDiceD6, FaDna } from "react-icons/fa";

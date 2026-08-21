@@ -1,29 +1,25 @@
 "use client";
 
 import { useState } from "react";
+import { inputWrapperVariants, inputFieldVariants } from "../input.variants";
 import {
-  inputWrapperVariants,
-  inputFieldVariants,
-  inputIconVariants,
-} from "../input.variants";
-import {
-  INPUT_SIZES,
   INPUT_STATUS,
   INPUT_TYPES,
   TYPE_HAS_AUTO_ICON,
 } from "../input.constants";
+
 import {
   getStatusIndicator,
   shouldShowRightIcon,
   resolveInputType,
   resolveHtmlType,
+  renderIcon,
 } from "../input.utils";
 import type { InputProps } from "../input.types";
 import { InputTypeIcon } from "./InputTypeIcon";
 import { InputPasswordToggle } from "./InputPasswordToggle";
 
 const InputField = ({
-  size = INPUT_SIZES.MEDIUM,
   status = INPUT_STATUS.DEFAULT,
   disabled = false,
   readOnly = false,
@@ -49,24 +45,19 @@ const InputField = ({
   const hasAutoLeftIcon =
     !leftIcon && TYPE_HAS_AUTO_ICON.has(htmlType as INPUT_TYPES);
 
-  const iconClass = inputIconVariants({ size });
-
   return (
     <div
       className={inputWrapperVariants({
-        size,
         status,
         disabled,
         hasActionSlot: !!actionSlot,
       })}
     >
-      {leftIcon ? (
-        <span className={iconClass}>{leftIcon}</span>
-      ) : hasAutoLeftIcon ? (
-        <span className={iconClass}>
-          <InputTypeIcon type={type} />
-        </span>
-      ) : null}
+      {leftIcon
+        ? renderIcon(leftIcon)
+        : hasAutoLeftIcon
+          ? renderIcon(<InputTypeIcon type={type} />)
+          : null}
 
       <input
         id={id}
@@ -78,12 +69,12 @@ const InputField = ({
         value={value}
         defaultValue={defaultValue}
         onChange={(e) => onValueChange?.(e.target.value)}
-        className={inputFieldVariants({ size })}
+        className={inputFieldVariants()}
       />
 
       {statusIndicator && <span className="shrink-0">{statusIndicator}</span>}
 
-      {showRightIcon && <span className={iconClass}>{rightIcon}</span>}
+      {showRightIcon && renderIcon(rightIcon)}
 
       {isPassword && (
         <InputPasswordToggle

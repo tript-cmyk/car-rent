@@ -1,8 +1,3 @@
-export enum INPUT_SIZES {
-  SMALL = "small",
-  MEDIUM = "medium",
-  LARGE = "large",
-}
 
 export enum INPUT_STATUS {
   DEFAULT = "default",

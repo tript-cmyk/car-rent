@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import type { SELECT_SIZES } from "./select.constants";
 
 export interface SelectOption {
   label: ReactNode;
@@ -14,7 +13,6 @@ export interface SelectProps {
   options?: SelectOption[];
   placeholder?: string;
   disabled?: boolean;
-  size?: SELECT_SIZES;
   label?: ReactNode;
   id?: string;
   name?: string;

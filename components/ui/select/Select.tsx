@@ -10,8 +10,8 @@ import {
   selectDropdownVariants,
   selectOptionVariants,
 } from "./select.variants";
-import { SELECT_SIZES } from "./select.constants";
 import { SelectProps } from "./select.types";
+
 import { resolveSelectedLabel } from "./select.utils";
 
 const Select = ({
@@ -21,7 +21,6 @@ const Select = ({
   options = [],
   placeholder = "Select your option",
   disabled = false,
-  size = SELECT_SIZES.MEDIUM,
   label,
   id,
   name,
@@ -83,7 +82,8 @@ const Select = ({
         type="button"
         disabled={disabled}
         onClick={() => !disabled && setOpen((prev) => !prev)}
-        className={cn(selectTriggerVariants({ size, open, disabled }))}
+        className={cn(selectTriggerVariants({ open, disabled }))}
+
       >
         <span className={cn("truncate", !currentValue && "text-secondary-400")}>
           {selectedLabel ?? placeholder}

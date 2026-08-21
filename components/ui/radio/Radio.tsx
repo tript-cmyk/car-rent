@@ -66,7 +66,7 @@ const Radio = ({
                 })}
               >
                 {checked && (
-                  <span className=" h-2 w-2 rounded-full bg-information sm:h-2.5 sm:w-2.5" />
+                  <span className="h-2 w-2 rounded-full bg-information sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3" />
                 )}
               </span>
 

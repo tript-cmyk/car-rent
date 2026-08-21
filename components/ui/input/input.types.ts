@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
-import type { INPUT_SIZES, INPUT_STATUS, INPUT_TYPES } from "./input.constants";
+import type { INPUT_STATUS, INPUT_TYPES } from "./input.constants";
+
 
 export interface InputProps {
   value?: string | number;
   defaultValue?: string | number;
   onValueChange?: (value: string) => void;
-  size?: INPUT_SIZES;
   label?: ReactNode;
   description?: ReactNode;
   helperText?: ReactNode;

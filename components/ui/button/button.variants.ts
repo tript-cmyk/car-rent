@@ -2,15 +2,11 @@ import { cva } from "class-variance-authority";
 
 export const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 font-semibold cursor-pointer rounded-sm " +
+    "px-4 py-1.5 text-sm sm:py-2 lg:px-6 lg:py-3 lg:text-base " +
     "disabled:pointer-events-none disabled:opacity-30 " +
     "transition-colors duration-300",
   {
     variants: {
-      size: {
-        small: "px-4 py-1.25 text-sm",
-        medium: "px-4 py-2 text-sm",
-        large: "px-6 py-3 text-base",
-      },
       variant: {
         primary:
           "bg-primary-500 text-white " +
@@ -31,44 +27,13 @@ export const buttonVariants = cva(
           "focus-visible:ring-secondary-200",
       },
       iconOnly: {
-        true: "",
+        true: "p-2 lg:p-3 aspect-square",
         false: "",
       },
     },
-    compoundVariants: [
-      {
-        size: "small",
-        iconOnly: true,
-        className: "p-2",
-      },
-      {
-        size: "medium",
-        iconOnly: true,
-        className: "p-2",
-      },
-      {
-        size: "large",
-        iconOnly: true,
-        className: "p-3",
-      },
-    ],
     defaultVariants: {
-      size: "medium",
       variant: "primary",
       iconOnly: false,
     },
   },
 );
-
-export const iconButtonVariants = cva("shrink-0 [&>svg]:size-full", {
-  variants: {
-    size: {
-      small: "size-4",
-      medium: "size-5",
-      large: "size-5",
-    },
-  },
-  defaultVariants: {
-    size: "medium",
-  },
-});

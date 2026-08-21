@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { INPUT_SIZES, INPUT_STATUS, INPUT_TYPES } from "./input.constants";
+import { INPUT_STATUS, INPUT_TYPES } from "./input.constants";
+
 import { InputProps } from "./input.types";
 import { resolveHelperText } from "./input.utils";
 import InputLabel from "./parts/InputLabel";
@@ -12,7 +13,6 @@ const Input = ({
   value,
   defaultValue,
   onValueChange,
-  size = INPUT_SIZES.MEDIUM,
   label,
   description,
   helperText,
@@ -54,7 +54,6 @@ const Input = ({
       />
 
       <InputField
-        size={size}
         status={status}
         disabled={disabled}
         readOnly={readOnly}

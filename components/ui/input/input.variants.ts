@@ -3,16 +3,12 @@ import { cva } from "class-variance-authority";
 export const inputWrapperVariants = cva(
   "w-full inline-flex items-center gap-2 " +
     "rounded-md border-none bg-[#F6F7F9] " +
+    "px-3 py-2 sm:px-4 sm:py-3 " +
     "transition-all duration-300 " +
     "focus-within:ring-2 focus-within:ring-primary-200",
 
   {
     variants: {
-      size: {
-        small: "px-3 py-2",
-        medium: "px-4 py-3",
-        large: "px-4 py-3",
-      },
       status: {
         default: "focus-within:ring-primary-200",
         success: "ring-2 ring-green-100 focus-within:ring-green-200",
@@ -29,7 +25,6 @@ export const inputWrapperVariants = cva(
       },
     },
     defaultVariants: {
-      size: "medium",
       status: "default",
       disabled: false,
       hasActionSlot: false,
@@ -39,23 +34,12 @@ export const inputWrapperVariants = cva(
 
 export const inputFieldVariants = cva(
   "flex-1 min-w-0 bg-transparent outline-none border-none " +
+    "text-sm lg:text-base " +
     "text-secondary-700 placeholder:text-secondary-400 " +
     "disabled:cursor-not-allowed " +
     "[&::-webkit-inner-spin-button]:appearance-none " +
     "[&::-webkit-search-decoration]:hidden " +
     "[&::-webkit-search-cancel-button]:hidden",
-  {
-    variants: {
-      size: {
-        small: "text-sm",
-        medium: "text-sm",
-        large: "text-base",
-      },
-    },
-    defaultVariants: {
-      size: "medium",
-    },
-  },
 );
 
 export const inputHelperVariants = cva(
@@ -71,22 +55,6 @@ export const inputHelperVariants = cva(
     },
     defaultVariants: {
       status: "default",
-    },
-  },
-);
-
-export const inputIconVariants = cva(
-  "shrink-0 text-secondary-400 transition-colors duration-200",
-  {
-    variants: {
-      size: {
-        small: "size-4",
-        medium: "size-4",
-        large: "size-5",
-      },
-    },
-    defaultVariants: {
-      size: "medium",
     },
   },
 );

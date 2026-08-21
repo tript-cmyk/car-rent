@@ -1,17 +1,19 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { buttonVariants, iconButtonVariants } from "./button.variants";
+import { buttonVariants } from "./button.variants";
 import { ButtonProps } from "./button.types";
 import { showIconLeft, showIconRight } from "./button.utils";
-import {
-  BUTTON_SIZES,
-  BUTTON_VARIANTS,
-  ICON_POSITION,
-} from "./button.constants";
+import { BUTTON_VARIANTS, ICON_POSITION } from "./button.constants";
+import { ReactNode } from "react";
+
+const renderIcon = (icon: ReactNode) => {
+  return (
+    <span className="shrink-0 [&>svg]:size-full size-4 sm:size-5">{icon}</span>
+  );
+};
 
 const Button = ({
-  size = BUTTON_SIZES.MEDIUM,
   variant = BUTTON_VARIANTS.PRIMARY,
   disabled = false,
   icon,
@@ -23,21 +25,14 @@ const Button = ({
   return (
     <button
       disabled={disabled}
-      className={cn(
-        buttonVariants({ variant, size, iconOnly }),
-        iconOnly && "aspect-square",
-      )}
+      className={cn(buttonVariants({ variant, iconOnly }))}
       onClick={() => onClick?.()}
     >
-      {showIconLeft(icon, iconPosition) && (
-        <span className={iconButtonVariants({ size })}>{icon}</span>
-      )}
+      {showIconLeft(icon, iconPosition) && renderIcon(icon)}
 
       {!iconOnly && children}
 
-      {showIconRight(icon, iconPosition) && (
-        <span className={iconButtonVariants({ size })}>{icon}</span>
-      )}
+      {showIconRight(icon, iconPosition) && renderIcon(icon)}
     </button>
   );
 };

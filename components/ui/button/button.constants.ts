@@ -4,12 +4,6 @@ export enum BUTTON_VARIANTS {
   MINIMAL = "minimal",
 }
 
-export enum BUTTON_SIZES {
-  SMALL = "small",
-  MEDIUM = "medium",
-  LARGE = "large",
-}
-
 export enum ICON_POSITION {
   LEFT = "left",
   RIGHT = "right",

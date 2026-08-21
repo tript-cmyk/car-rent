@@ -78,3 +78,11 @@ export const resolveHtmlType = (
       : INPUT_TYPES.PASSWORD
     : resolveInputType(type);
 };
+
+export const renderIcon = (icon: ReactNode) => {
+  return (
+    <span className="shrink-0 text-secondary-400 transition-colors duration-200 size-4 lg:size-5">
+      {icon}
+    </span>
+  );
+};
