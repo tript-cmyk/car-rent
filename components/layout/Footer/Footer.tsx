@@ -3,7 +3,7 @@ import {
   footerAboutLinksGroup,
   footerCommunityLinksGroup,
   footerSocialLinksGroup,
-} from "./components/footer.constants";
+} from "./footer.constants";
 
 const Footer = () => {
   return (
